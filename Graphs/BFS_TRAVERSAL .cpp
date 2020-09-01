@@ -47,6 +47,7 @@ int main(){
 			vis[i]=true;
 		}
 	}
-
+	
+	return 0;
 	
 }
