@@ -11,8 +11,8 @@ void bfs(vector<ll> adj[],bool vis[],ll s){
 		q.pop();
 		for(ll i=0;i<adj[x].size();i++){
 			if(vis[adj[x][i]]==false){
-				cout<<adj[x][i]<<" ";
 				vis[adj[x][i]]=true;
+				q.push(adj[x][i]);
 			}
 		}
 	}
