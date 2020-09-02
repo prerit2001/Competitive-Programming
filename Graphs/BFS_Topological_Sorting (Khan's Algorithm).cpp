@@ -47,4 +47,6 @@ int main(){
 	vis[s]=true;
 
 	bfs_topological(adj,indegree);
+	
+	return 0;
 }
