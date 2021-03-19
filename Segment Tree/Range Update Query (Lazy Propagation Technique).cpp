@@ -19,7 +19,8 @@ public:
 		buildTree(2*Si+1,mid+1,Se);
 		ST[Si] = ST[2*Si] + ST[2*Si+1];
 	}
-	int64_t answeringQueries(int64_t Si,int64_t Ss,int64_t Se,int64_t Qs,int64_t Qe){
+	int64_t answeringQueries(int64_t Si,int64_t Ss,int64_t Se,int64_t Qs,int64_t Qe){	
+		// Firstly checking pending updates on the node we gonna proceed
 		if(lazyDiary[Si] != 0){
 			if(Ss != Se){	
 				lazyDiary[2*Si] += lazyDiary[Si];
@@ -27,14 +28,15 @@ public:
 			}
 			ST[Si] += lazyDiary[Si] * (Se - Ss + 1);
 			lazyDiary[Si] = 0;
-
 		}
+
 		if(Qe < Ss or Se < Qs)return 0;
 		if(Qs <= Ss and Se <= Qe)return ST[Si];
 		int64_t mid = (Ss + Se)/2;
 		return answeringQueries(2*Si,Ss,mid,Qs,Qe) + answeringQueries(2*Si+1,mid+1,Se,Qs,Qe);
 	}
 	void updateRange(int64_t Si,int64_t Ss,int64_t Se,int64_t Qs,int64_t Qe,int64_t val){
+		// Firstly checking pending updates on the node we gonna proceed
 		if(lazyDiary[Si]!=0){
 			if(Ss != Se){
 				lazyDiary[2*Si] += lazyDiary[Si];
@@ -42,8 +44,8 @@ public:
 			}
 			ST[Si] += lazyDiary[Si] * (Se - Ss + 1);
 			lazyDiary[Si] = 0;
-
 		}
+		
 		if(Qe < Ss or Se < Qs)return;
 		if(Qs <= Ss and Se <= Qe){
 			if(Ss != Se){
