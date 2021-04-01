@@ -114,5 +114,4 @@ Input: nums = [5,-7,3,5], goal = 6
 Output: 0
 Explanation: Choose the whole array as a subsequence, with a sum of 6.
 This is equal to the goal, so the absolute difference is 0.
-
 */
