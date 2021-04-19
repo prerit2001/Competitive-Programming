@@ -1,3 +1,7 @@
+/*
+https://leetcode.com/problems/partition-array-for-maximum-sum/submissions/
+*/
+
 class Solution {
 public:
 	std::vector<int> v;
