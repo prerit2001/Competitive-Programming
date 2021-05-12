@@ -1,7 +1,6 @@
 /*
-  // dfs cycle
+ // Detect Cycle in Directed Graph
 */
-
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -9,21 +8,19 @@ using namespace std;
 const int64_t LIMIT = 1e5+5; 
 
 vector<int64_t> adj[LIMIT];
-bool vis[LIMIT];
 
 bool done = false;
 int64_t point;
 int64_t back_step;
-int64_t parent[LIMIT] = {};
 
-void dfs(int64_t src){
-	vis[src] = true;
+void dfs(int64_t src,int64_t vis[],int64_t parent[]){
+	vis[src] = 1;
 	for(auto it : adj[src]){
 		if(!vis[it]){
 			parent[it] = src;
-			dfs(it);
+			dfs(it,vis,parent);
 		}
-		else if(parent[src]!=it){
+		else if(vis[it] == 1){
 			done = true;
 			vector<int64_t> ans;
 			ans.push_back(it);
@@ -33,7 +30,7 @@ void dfs(int64_t src){
 			}
 			ans.push_back(src);
 			ans.push_back(it);
-
+			reverse(ans.begin(), ans.end());
 			vector<int64_t> round_path = ans;
 			cout << round_path.size() << '\n';
 			for(auto it : round_path){
@@ -43,6 +40,7 @@ void dfs(int64_t src){
 			exit(0);
 		}
 	}
+	vis[src] = 2;
 }
 
 int main(){
@@ -61,15 +59,16 @@ int main(){
 		for(i=0;i<m;i++){
 			int64_t u,v; cin >> u >> v;
 			adj[u-1].push_back(v-1);
-			adj[v-1].push_back(u-1);
 		}
 
-		memset(vis,false,sizeof(vis));
+		int64_t vis[n];		
+		int64_t parent[n] = {};
+		memset(vis,0,sizeof(vis));
 		memset(parent,-1,sizeof(parent));
 
 		for(i=0;i<n;i++){
 			if(!vis[i] and !done){
-				dfs(i);
+				dfs(i,vis,parent);
 			}
 		}
 
