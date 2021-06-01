@@ -26,12 +26,8 @@ int64_t go(int64_t n, char prev, int64_t tight = 1, int64_t leading_zero = 0){
 
 int main(){
 
-	ios_base::sync_with_stdio(false);cin.tie(NULL); 
-	#ifndef ONLINE_JUDGE
-	freopen("E:/CODING/input.txt", "r", stdin); 
-	freopen("E:/CODING/output.txt", "w", stdout); 
-	#endif
-
+	ios_base::sync_with_stdio(false);cin.tie(NULL);
+	
 	int64_t i,j,t=1;
 	// cin>>t;
 	while(t--){
