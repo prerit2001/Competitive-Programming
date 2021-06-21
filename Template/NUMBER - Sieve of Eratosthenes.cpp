@@ -19,7 +19,7 @@ void seive(){
 
 signed main(){
 
-	ios_base::sync_with_stdio(false);cin.tie(NULL); 
+	ios_base::sync_with_`stdio(false);cin.tie(NULL); 
 
 	// 1-based index
 	seive();
