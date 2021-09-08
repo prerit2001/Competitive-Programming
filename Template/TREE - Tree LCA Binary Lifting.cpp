@@ -14,7 +14,7 @@ int dist[limit];
 void binary_lifting_dfs(int source, int parent){
 	up[source][0] = parent;
 	for(int i=1;i<=32;i++){
-		if(up[up[source][i-1]][i-1] != -1) up[source][i] = up[up[source][i-1]][i-1];
+		if(up[source][i-1] != -1) up[source][i] = up[up[source][i-1]][i-1];
 		else up[source][i] = -1;
 	}
 	for(auto v : adj[source]){
