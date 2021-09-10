@@ -1,9 +1,11 @@
 /*https://leetcode.com/problems/merge-intervals/*/
+------------------------------------------------------------------------------
 /*
 	M1 : Use Extra Store array and increment start val and decrement end val 
 		and then prefix sum .
 	O(n or 10000) time and O(n or 10000) space .
 */
+
 
     vector<vector<int>> merge(vector<vector<int>>& a) {
         vector<vector<int>> ans;
@@ -32,6 +34,8 @@
         }
         return ans;
     }
+
+---------------------------------------------------------------------------
 /*
 	M2 : Sort the array according to start value then do a linear check
 	O(nlogn) time and O(n) extra space
@@ -56,3 +60,4 @@
         mergedIntervals.push_back(tempInterval);
         return mergedIntervals; 
     }
+--------------------------------------------------------------------------

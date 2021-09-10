@@ -1,5 +1,5 @@
 /*https://www.geeksforgeeks.org/efficiently-merging-two-sorted-arrays-with-o1-extra-space/*/
-
+-------------------------------------------------------------------------------------------
 /*
 	M1 : Brute force
 	O(n * m) time and O(1) space  
@@ -20,7 +20,7 @@
 			}
 		}
 	}
-
+-------------------------------------------------------------------------------------------
 /*
 	M2 : Gap Sort
 	O(nlogn) time and O(1) space

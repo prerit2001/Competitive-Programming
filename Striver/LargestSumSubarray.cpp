@@ -5,6 +5,7 @@
 	Approach : 
 		3 nested loops
 */
+--------------------------------------------------------------------
 /*
 	M2 : Brute Force Optimal
 	O(N^2) time constant space
@@ -12,6 +13,7 @@
 	Approach : 
 		2 nested loops
 */
+--------------------------------------------------------------------
 /*
 	M3 : Kadane's Algorithm
 	O(N) time and constant space
@@ -34,3 +36,4 @@
  		}
  		return max_so_far;
     }
+--------------------------------------------------------------
