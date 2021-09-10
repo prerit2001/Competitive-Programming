@@ -2,16 +2,16 @@
 	M1 : brute force sorting 
 	O(nlogn) time and O(1) space
 */
------------------------------------
+--------------------------------------------------------
 /*
 	M2 : Counting Sort
 	O(n) time  and O(1) space
 */
----------------------------------
+---------------------------------------------------------
 /*
 	M3 : 2 pass solution
 	O(2*n) time and O(1) space
-	
+*/	
 		class Solution {
 		public:
 		    void sortColors(vector<int>& nums) {
@@ -30,12 +30,12 @@
 		        }
 		    }
 		};
-*/	
+
 --------------------------------------------------------
 /*
 	M4 : Variation of "dutch national flag algorithm"
 	O(n) time and O(1) space
-
+*/
 		class Solution {
 		public:
 		    void sortColors(vector<int>& nums) {
@@ -57,5 +57,4 @@
 		        }
 		    }
 		};
-*/
 -------------------------------------------------------
