@@ -2,35 +2,34 @@
 using namespace std;
 #define int int64_t
 
-int fact[1000001] = {1,1,2};
+int fact[100005] = {1,1,2,6};
 
-int power(int a,int b,int mod){
-    int res = 1;
-    while(1){
-		if(b==0){
-			break;
-		}
-		int cnt = 1;
-		int curr = a % mod;
-		while(cnt * 2 < b){
-			curr = (curr%mod*curr%mod)%mod;
-			cnt *= 2;
-		}
-		res = (res%mod*curr%mod)%mod;
-		b -= cnt;
-	}
-	return (res%mod+mod)%mod;
-};
+int mod = 998244353;
+
+int power(int x,int y, int p){
+    int res = 1;  
+    x = x % p;
+    if (x == 0) return 0; 
+ 
+    while (y > 0){
+        if (y & 1)
+            res = (res*x) % p;
+        y = y>>1; 
+        x = (x*x) % p;
+    }
+    return res;
+}
 
 int ModInv(int a,int mod){
-	return power(a,mod-2,mod);
+	return power(a,mod-2,mod)%mod;
 };
 
-int nCr(int n,int r,int mod){
-	int numirator = fact[n];
-	int denominator = 0;
-	if(n >= r) denominator = (fact[n-r]%mod * fact[r]%mod)%mod;
-	return r > n ? 0 : ((numirator%mod)*ModInv(denominator,mod)%mod)%mod;
+int ncr(int n,int r,int mod){
+	if(r > n) return 0;
+	if(r == 0 or r == n) return 1;
+	int numirator = fac[n];
+	int denominator = ((fac[n-r]%mod) * (fac[r]%mod))%mod;
+	return ((numirator%mod)*(ModInv(denominator,mod)%mod))%mod;
 };
 
 signed main(){
