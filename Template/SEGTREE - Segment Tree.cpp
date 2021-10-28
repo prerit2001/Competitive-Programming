@@ -1,59 +1,74 @@
-// 1 based indexed
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-#define int int64_t
+typedef long long ll;
+void solve();
+int main() { solve(); }
 
-int ST[400001] = {};
-int a[100001] = {};
-
-// Range Minimum Query with Point Update
-class RMQSQ{
-public:
-	void buildTree(int Si,int Ss,int Se){
-		if(Ss == Se){
-			ST[Si] = a[Ss];
-			return;
-		}
-		int mid = (Ss + Se)/2;
-		buildTree(2*Si,Ss,mid);
-		buildTree(2*Si+1,mid+1,Se);
-		ST[Si] = min(ST[2*Si],ST[2*Si+1]); 
-	}
-	int answeringQueries(int Si,int Ss,int Se,int Qs,int Qe){
-		if(Ss > Qe or Se < Qs)return LLONG_MAX; // Completly Outside
-		if(Ss >= Qs and Qe >= Se)return ST[Si];
-		int mid = (Ss + Se)/2;
-		return min(answeringQueries(2*Si,Ss,mid,Qs,Qe),answeringQueries(2*Si+1,mid+1,Se,Qs,Qe));
-	}
-	void updateQueries(int Si,int Ss,int Se,int Q){
-		if(Ss == Se){
-			ST[Si] = a[Q];
-			return;
-		}
-		int mid = (Ss + Se)/2;
-		if(Q <= mid and Q >= Ss)updateQueries(2*Si,Ss,mid,Q);
-		else updateQueries(2*Si+1,mid+1,Se,Q);
-		ST[Si] = min(ST[2*Si],ST[2*Si+1]);
-	}
+// range Min
+class segTree {
+   public:
+    ll n;          // size of array
+    vector<ll> a;   // 1-index array
+    vector<ll> St;  // segTree Storage
+    segTree(ll n, vector<ll> a) {
+        this->n = n;
+        this->a.resize(n + 1, 0);
+        for (ll i = 0; i < n; i++) {
+            this->a[i + 1] = a[i];
+        }
+        St.resize(5 * n);
+        build(1, 1, n);
+    }
+    void build(ll Si, ll Ss, ll Se) {
+        if (Ss == Se) {
+            St[Si] = a[Ss];
+            return;
+        }
+        ll mid = (Ss + Se) >> 1;
+        build(2 * Si, Ss, mid);
+        build(2 * Si + 1, mid + 1, Se);
+        St[Si] = min(St[2 * Si], St[2 * Si + 1]);
+    }
+    ll query(ll Si, ll Ss, ll Se, ll Qs, ll Qe) {
+        if (Qs > Se or Qe < Ss) return 1e15;
+        if (Qs <= Ss and Qe >= Se) return St[Si];
+        ll mid = (Ss + Se) >> 1;
+        ll lSubTree = query(2 * Si, Ss, mid, Qs, Qe);
+        ll rSubTree = query(2 * Si + 1, mid + 1, Se, Qs, Qe);
+        return min(lSubTree, rSubTree);
+    }
+    void update(ll Si, ll Ss, ll Se, ll q, ll val) {
+        a[q] = val;
+        if (Ss == Se) {
+            St[Si] = a[Ss];
+            return;
+        }
+        ll mid = (Ss + Se) >> 1;
+        if (Ss <= q and q <= mid)
+            update(2 * Si, Ss, mid, q, val);
+        else
+            update(2 * Si + 1, mid + 1, Se, q, val);
+        St[Si] = min(St[2 * Si], St[2 * Si + 1]);
+    }
 };
 
-signed main(){
+void solve() {
+    ll n, q;
+    cin >> n >> q;
+    vector<ll> a(n);
+    for (auto &it : a) cin >> it;
 
-	int n;cin>>n;
-	int i = 0;
-	for(i=1;i<=n;i++)cin>>a[i];
-	
-	// BUILD TREE
-	RMQSQ tree;
-	tree.buildTree(1,1,n);
+    segTree seg(n, a);
 
-	int q;cin>>q;
-	while(q--){
-		int l,r;cin>>l>>r;
-		
-		// ANSERING QUERIES
-		cout<<tree.answeringQueries(1,1,n,l,r)<<endl;
-	}
-	return 0;
+    while (q-- > 0) {
+        char c;
+        cin >> c;
+        ll l, r;
+        cin >> l >> r;
+        if (c == 'q') {
+            cout << seg.query(1, 1, n, l, r) << '\n';
+        } else {
+            seg.update(1, 1, n, l, r);
+        }
+    }
 }
