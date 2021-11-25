@@ -1,0 +1,14 @@
+1. for(auto &it : vec) is very fast than for(auto it : vec)
+2. Rearrage array such that no two adjecent element are equal.
+	-> no element should be greater than half.
+	-> sort elements than align sorted index like -> eg. 1 6 2 7 3 8 4 9 5 10
+3. check 2's power -> n & (n - 1) == 0
+4. count set bits 
+	-> int ans = 0; 
+	   while(n) { 
+		n = n & (n - 1); 
+		ans ++; 
+	   } 
+	   print(ans);	
+5. in building adj for topological sorting, if possible edge is messy , build not possible edge
+	and reverse it.
