@@ -12,3 +12,6 @@
 	   print(ans);	
 5. in building adj for topological sorting, if possible edge is messy , build not possible edge
 	and reverse it.
+6. Consider sliding window dynamic compression best way in case of subarray questions.
+7. #pragma GCC target("popcnt") for bitset operation faster
+ 
