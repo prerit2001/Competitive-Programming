@@ -1,17 +1,5 @@
+// https://cses.fi/problemset/task/1144/
 
-#pragma GCC optimize("Ofast")
-#pragma GCC optimize("no-stack-protector")
-#pragma GCC optimize("unroll-loops")
-#pragma GCC optimize("unswitch-loops")
-#pragma GCC optimize("fast-math")
-#pragma GCC optimize("rename-registers")
-#pragma GCC optimize("move-loop-invariants")
-#pragma GCC optimize("branch-target-load-optimize")
-#pragma GCC optimize("btr-bb-exclusive")
-#pragma GCC target("sse2")
-#pragma GCC target("popcnt")
-#pragma GCC target("mmx")
-#pragma GCC target("tune=native")
 #include <bits/stdc++.h>
 
 #include <iostream>
@@ -33,11 +21,11 @@ struct Node* getnode() {
 
 struct Node* root;
 
-void UpdateHelper(struct Node* curr, ll index, ll L, ll R, ll val) {
+void UpdateHelper(struct Node* curr, ll index, ll L, ll R, ll delta) {
     if (L > index || R < index) return;
 
     if (L == R && L == index) {
-        curr->value += val;
+        curr->value += delta;
         return;
     }
 
@@ -49,13 +37,13 @@ void UpdateHelper(struct Node* curr, ll index, ll L, ll R, ll val) {
             curr->L = getnode();
         }
 
-        UpdateHelper(curr->L, index, L, mid, val);
+        UpdateHelper(curr->L, index, L, mid, delta);
     } else {
         if (curr->R == NULL) {
             curr->R = getnode();
         }
 
-        UpdateHelper(curr->R, index, mid + 1, R, val);
+        UpdateHelper(curr->R, index, mid + 1, R, delta);
     }
 
     if (curr->L) sum1 = curr->L->value;
