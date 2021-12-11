@@ -1,4 +1,4 @@
-//https://github.com/prerit2001/Competitive-Programming/tree/master/Template
+// credit -> neal_wu
 
 #include <algorithm>
 #include <array>
