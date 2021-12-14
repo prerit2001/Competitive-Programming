@@ -63,13 +63,12 @@ ll queryHelper(struct Node* curr, ll a, ll b, ll L, ll R) {
 
     ll mid = L - (L - R) / 2;
 
-    return queryHelper(curr->L, a, b, L, mid) +
-           queryHelper(curr->R, a, b, mid + 1, R);
+    return queryHelper(curr->L, a, b, L, mid) + queryHelper(curr->R, a, b, mid + 1, R);
 }
 
-ll query(int L, int R) { return queryHelper(root, L, R, 1, 1e9); }
+ll query(ll L, ll R) { return queryHelper(root, L, R, 1, 1e9); }
 
-void update(int index, int value) { UpdateHelper(root, index, 1, 1e9, value); }
+void update(ll index, ll value) { UpdateHelper(root, index, 1, 1e9, value); }
 
 void solve(ll tc) {
     ll n, m;
