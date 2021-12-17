@@ -46,7 +46,7 @@
 		element of that part.
 		2. first element of last part will be the answer because it is
 		given that the majority element have > n/2 frequency. since last
-		part sould not cancel all elements as usual astheir previous parts.
+		part sould not cancel all elements as usual as their previous parts.
 */
 	class Solution {
 	public:
