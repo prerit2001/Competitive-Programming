@@ -1,4 +1,4 @@
-1. for(auto &it : vec) is very fast than for(auto it : vec)
+1. for(auto &it : vec) is very fast than for(auto it : vec) coz of referening
 2. Rearrage array such that no two adjecent element are equal.
 	-> no element should be greater than half.
 	-> sort elements than align sorted index like -> eg. 1 6 2 7 3 8 4 9 5 10
@@ -14,4 +14,7 @@
 	and reverse it.
 6. Consider sliding window dynamic compression best way in case of subarray questions.
 7. #pragma GCC target("popcnt") for bitset operation faster
- 
+8. vector1.swap(vector2) is O(1) coz of reference swaping ->
+	 https://codeforces.com/contest/1620/submission/139768900
+9. for question like -> common max lenth subtring in vector of strings ["aaabbaa", "avvss", "asfff"]
+	or similiar, thing of reverse binary search first :)
