@@ -17,4 +17,5 @@
 8. vector1.swap(vector2) is O(1) coz of reference swaping ->
 	 https://codeforces.com/contest/1620/submission/139768900
 9. for question like -> common max lenth subtring in vector of strings ["aaabbaa", "avvss", "asfff"]
-	or similiar, thing of reverse binary search first :)
+	or similiar, think of reverse binary search first :)
+10. For finding the min of max or max of min related problem think of reverse binary search first :)
