@@ -1,4 +1,5 @@
-/**/
+/*https://leetcode.com/problems/palindrome-linked-list/*/
+--------------------------------------------------------------------------------------
 /*
 	M1 : Reversed first half == Second half?
 	O(n) time and O(1) space
@@ -40,3 +41,4 @@
 	        return compareList(head,h2);
 	    }
 	};
+--------------------------------------------------------------------------------------

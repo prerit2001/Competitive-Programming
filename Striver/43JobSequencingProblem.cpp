@@ -1,4 +1,5 @@
 /*https://practice.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1#*/
+--------------------------------------------------------------------------------------
 /*
 	M1: Sort according to the max profit having checksum for feasiblity
 	O(n*m) time and O(m) space
@@ -39,6 +40,7 @@
 	       if (slot[i])
 	         cout << arr[result[i]].id << " ";
 	}
+--------------------------------------------------------------------------------------
 /*
 	M2 : DSU
 	O(n) time and O(m) space
@@ -127,3 +129,4 @@
 	        return {jobDone, profit};
 	    } 
 	};
+--------------------------------------------------------------------------------------

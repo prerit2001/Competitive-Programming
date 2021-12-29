@@ -1,4 +1,5 @@
 /*https://practice.geeksforgeeks.org/problems/flattening-a-linked-list*/
+--------------------------------------------------------------------------------------
 /*
 	M1 : Merge 2 Linked List at a time recursively
 	O(Number of Nodes) time and O(1) space
@@ -29,3 +30,4 @@
 	    root = merge(root, root -> next);
 	    return root;
 	}
+--------------------------------------------------------------------------------------
