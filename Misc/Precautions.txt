@@ -19,3 +19,11 @@
 9. for question like -> common max lenth subtring in vector of strings ["aaabbaa", "avvss", "asfff"]
 	or similiar, think of reverse binary search first :)
 10. For finding the min of max or max of min related problem think of reverse binary search first :)
+11. Merging many sets in  amortized. If you have some sets and you often need to merge some 
+	of them, you can do it in naive way but in such manner that you always move elements from
+	the smaller one to the larger. Thus every element will be moved only  times since its new
+	set always will be at least twice as large as the old one. eg. -> https://codeforces.com/contest/1620/submission/139768900
+12. sometimes in bitwise question reducing the given state to besst possible form is likely to solve the problem.
+	eg. https://www.codechef.com/START21C/problems/ANDORUNI
+13. bitwise operator priority
+14. shortest common substring of two string is of one lenth only.
