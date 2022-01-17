@@ -27,3 +27,5 @@
 	eg. https://www.codechef.com/START21C/problems/ANDORUNI
 13. bitwise operator priority
 14. shortest common substring of two string is of one lenth only.
+15. some dp assumed question can be solved with bfs only-> jump game 4
+16. https://leetcode.com/contest/weekly-contest-276/problems/maximum-running-time-of-n-computers/ -> brilliant question
