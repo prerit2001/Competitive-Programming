@@ -16,7 +16,7 @@ void mirror(struct Node* node)
         mirror(node->right);
     
         /* swap the pointers in this node */
-        temp     = node->left;
+        temp = node->left;
         node->left = node->right;
         node->right = temp;
     }
