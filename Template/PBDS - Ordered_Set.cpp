@@ -60,6 +60,7 @@ int main()
 #include<ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 
+// must define all parameters in case of pairs or more in cmp else annoying it will lead to WA
 template <class T> struct cmp {
     bool operator() (T a, T b) {
         return a.first > b.first || (a.first == b.first && a.second < b.second);
