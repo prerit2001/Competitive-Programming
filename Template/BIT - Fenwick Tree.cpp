@@ -10,12 +10,12 @@ class FenwickTree {
     vector<int> BIT;
     FenwickTree(int n) {
         this->n = n + 1;
-        BIT.resize(n + 1, 0);
+        BIT.resize(n + 2, 0);
     }
     // initially all values of BIT are 0, so update all the delta's first
-    void update(int idx, int value) {
+    void update(int idx, int delta) {
         while (idx <= n) {
-            BIT[idx] += value;
+            BIT[idx] += delta;
             idx += (idx & (-idx));
             // eg: let idx = 13 and n = 16, then idx goes like
             // -> 01101 (13) -> 01110 (14) -> 10000 (16)

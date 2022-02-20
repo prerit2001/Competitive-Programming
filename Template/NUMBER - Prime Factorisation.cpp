@@ -2,6 +2,7 @@
 using namespace std;
 #define int int64_t
 
+// ....check gcd once before
 void prime_factorisation(int param){
 	map<int,int> mp;
 	for(int i=2;i*i<=param;i++){
