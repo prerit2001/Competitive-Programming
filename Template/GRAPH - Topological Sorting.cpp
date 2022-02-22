@@ -39,8 +39,11 @@ void bfs_toplogical_sort(){
 			}
 		}
 	}
+
+	// cnt must be equal to n to genrate correct topo sort else the 
+	// graph must not be DAG
 	
-	// Graph has Cycle
+	// Graph has Cycle 
 	assert(cnt == N);
 }
 
