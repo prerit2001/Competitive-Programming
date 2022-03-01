@@ -31,4 +31,6 @@ void functions()
 	bit.size(); //return size of bitset
 	bit.test(1); //check if 1st bit is on or not
 	cout << bit.to_string(); //converts to string
+	cout << bit._Find_first() << "\n"; // 000110000 -> 6, Find first set bit
+	cout << bit._Find_next(6) << "\n"; // next set bit in bitset after index 6
 }
