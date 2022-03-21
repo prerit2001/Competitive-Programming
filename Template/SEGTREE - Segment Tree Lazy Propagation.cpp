@@ -93,3 +93,75 @@ int main(){
 	}
 	return 0;
 }
+
+------------------------------------------------------
+
+
+class segTree {
+public:
+	ll n;
+	vector<ll> a;
+	vector<ll> St;
+	vector<ll> lazyDiary;
+	void segBuild(ll n, vector<ll> a) {
+		this->n = n;
+		this->a.resize(n + 1, 0);
+		for (ll i = 0; i < n; i++) {
+			this->a[i + 1] = a[i];
+		}
+		St.resize(5 * n);
+		lazyDiary.resize(5 * n);
+		build(1, 1, n);
+	}
+	void build(ll Si, ll Ss, ll Se) {
+		if (Ss == Se) {
+			St[Si] = a[Ss];
+			return;
+		}
+		ll mid = (Ss + Se) >> 1;
+		build(2 * Si, Ss, mid);
+		build(2 * Si + 1, mid + 1, Se);
+		St[Si] = (St[2 * Si] + St[2 * Si + 1]);
+	}
+	ll query(ll Si, ll Ss, ll Se, ll Qs, ll Qe) {
+		if(lazyDiary[Si] != 0){
+			if(Ss != Se){	
+				lazyDiary[2*Si] += lazyDiary[Si];
+				lazyDiary[2*Si+1] += lazyDiary[Si];
+			}
+			St[Si] += lazyDiary[Si] * (Se - Ss + 1);
+			lazyDiary[Si] = 0;
+		}
+		if (Qs > Se or Qe < Ss) return 0;
+		if (Qs <= Ss and Qe >= Se) return St[Si];
+		ll mid = (Ss + Se) >> 1;
+		ll lSubTree = query(2 * Si, Ss, mid, Qs, Qe);
+		ll rSubTree = query(2 * Si + 1, mid + 1, Se, Qs, Qe);
+		return (lSubTree + rSubTree);
+	}
+	void update(ll Si, ll Ss, ll Se, ll Qs, ll Qe, ll val) {
+		if(lazyDiary[Si]!=0){
+			if(Ss != Se){
+				lazyDiary[2*Si] += lazyDiary[Si];
+				lazyDiary[2*Si+1] += lazyDiary[Si];
+			}
+			St[Si] += lazyDiary[Si] * (Se - Ss + 1);
+			lazyDiary[Si] = 0;
+		}
+		if(Qe < Ss or Se < Qs)return;
+
+		if(Qs <= Ss and Se <= Qe){
+			if(Ss != Se){
+				lazyDiary[2*Si] += val;
+				lazyDiary[2*Si+1] += val;
+			}
+			St[Si] += val * (Se - Ss + 1);
+			return;
+		}
+
+		ll mid = (Ss + Se) >> 1;
+		update(2 * Si, Ss, mid, Qs, Qe, val);
+		update(2 * Si + 1, mid + 1, Se, Qs, Qe, val);
+		St[Si] = (St[2 * Si] + St[2 * Si + 1]);
+	}
+};
