@@ -34,10 +34,44 @@
         }
         return ans;
     }
-
 ---------------------------------------------------------------------------
 /*
-	M2 : Sort the array according to start value then do a linear check
+    M2 : map merge segment extraction
+    O(n) time and O(n) extra space
+*/
+    class Solution {
+    public:
+        vector<vector<int>> merge(vector<vector<int>>& a) {
+            map<int, int> mp;
+            int n = a.size();
+            for(int i = 0; i < n; i ++){
+                mp[a[i][0]] ++;
+                mp[a[i][1]] --;
+            }
+            int flag = 0;
+            vector<vector<int>> ans;
+            vector<int> temp;
+            int preSum = 0;
+            for(auto &it: mp){
+                it.second += preSum;
+                preSum = it.second;
+                if(flag == 0){
+                    temp.push_back(it.first);
+                    flag = 1;
+                }
+                if(it.second == 0){
+                    temp.push_back(it.first);
+                    ans.push_back(temp);
+                    temp.clear();
+                    flag = 0;
+                }
+            }
+            return ans;
+        }
+    };
+---------------------------------------------------------------------------
+/*
+	M3 : Sort the array according to start value then do a linear check
 	O(nlogn) time and O(n) extra space
 */
 

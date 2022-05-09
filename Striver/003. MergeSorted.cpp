@@ -22,7 +22,7 @@
 	}
 -------------------------------------------------------------------------------------------
 /*
-	M2 : Gap Sort
+	M2 : Gap Sort #striver last 5 min vid
 	O(nlogn) time and O(1) space
 */
 
@@ -48,3 +48,66 @@
 			}
 		}
 	}
+
+	## Aither
+
+	class Solution{
+	    public:
+	        //Function to merge the arrays.
+	        void merge(long long arr1[], long long arr2[], int n, int m) 
+	        { 
+	            // code here 
+	            int gap = (n + m + 1) / 2;
+	            while(1){
+	                int i = 0, j = gap;
+	                for(; j < n + m; i ++, j ++){
+	                    int f = i;
+	                    if(f >= n){ 
+	                        f = f - n;
+	                        int s = j;
+	                        if(s >= n){
+	                            s = s - n;
+	                            if(arr2[f] > arr2[s]) swap(arr2[f], arr2[s]);
+	                        }
+	                        else{
+	                            // not possible
+	                        }
+	                    }
+	                    else{
+	                        int s = j;
+	                        if(s >= n){ 
+	                            s = s - n;
+	                            if(arr1[f] > arr2[s]) swap(arr1[f], arr2[s]);
+	                        }
+	                        else{
+	                            if(arr1[f] > arr1[s]) swap(arr1[f], arr1[s]);
+	                        }
+	                    }
+	                }
+	                if(gap <= 1) break; 
+	                gap = (gap + 1) / 2;
+	            }
+	        } 
+	};
+----------------------------------------------------------------------------------
+/*
+	M3: Two Pointers(Reverse Merging) If Problem is Leetcode types
+	O(n + m) time and O(1) space  
+*/
+	class Solution {
+	public:
+	    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+	        int i = m - 1, j = n - 1, k = n + m - 1;
+	        while(j >= 0){
+	            if(i < 0 or nums1[i] < nums2[j]){
+	                nums1[k] = nums2[j];
+	                k --, j --;
+	            }	
+	            else{
+	                nums1[k] = nums1[i];
+	                k --; i --;
+	            }
+	        }
+	    }
+	};
+----------------------------------------------------------------------------------
