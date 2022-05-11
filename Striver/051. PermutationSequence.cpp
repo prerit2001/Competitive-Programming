@@ -25,19 +25,26 @@
 */
 	class Solution {
 	public:
+	    int fact(int n){
+	        if(n <= 0) return 1; 
+	        return n * fact(n - 1);
+	    }
 	    string getPermutation(int n, int k) {
-	        string ans(n, '0');
-	        set<char> s;
-	        vector<int> fact = {1,1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
+	        vector<bool> vis(n + 1, false);
+	        string ans = "";
 	        for(int i = 0; i < n; i ++){
-	            int pre = 0;
-	            for(char c = '1'; c <= char(n + '0'); c ++){
-	                if(s.count(c)) continue;
-	                pre += 1;
-	                if(pre * fact[n - i - 1] >= k){
-	                    s.insert(c);
-	                    ans[i] = c;
-	                    k -= (pre - 1) * fact[n - i - 1];
+	            for(int j = 0; j < n; j ++){
+	                if(vis[j + 1]) continue;
+	                int right_elem = n - i - 1;
+	                int cur = j + 1;
+	                int perm_right = fact(right_elem);
+	                if(perm_right < k){
+	                    k -= perm_right;
+	                    continue;
+	                }
+	                else{
+	                    ans += char(cur + '0');
+	                    vis[cur] = true;
 	                    break;
 	                }
 	            }

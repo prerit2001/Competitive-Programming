@@ -14,3 +14,6 @@
 036. FlatenningLinkedList.cpp
 169. CloneLinkedListWithRandomPointers.cpp
 039. TrappingRainWater.cpp
+047. Subset2.cpp
+051. PermutationSequence.cpp
+053. NQueens.cpp

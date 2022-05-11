@@ -83,4 +83,18 @@ public:
     { return s.find_by_order(i++)->second; }
 };
 
+// to use all function
+typedef tree<
+pair<int, int>,
+null_type,
+less<pair<int, int>>,
+rb_tree_tag,
+tree_order_statistics_node_update> ordered_set;
 
+int t = 0;
+
+ordered_set me;
+...
+me.insert({x, t++});
+me.erase(me.lower_bound({x, 0}));
+cout << me.order_of_key({x, 0}) << "\n";
