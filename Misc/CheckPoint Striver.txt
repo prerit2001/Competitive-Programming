@@ -17,3 +17,5 @@
 047. Subset2.cpp
 051. PermutationSequence.cpp
 053. NQueens.cpp
+058. MatrixMedian.cpp
+060. PivotSortedRotated.cpp
