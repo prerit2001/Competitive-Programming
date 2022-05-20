@@ -19,3 +19,6 @@
 053. NQueens.cpp
 058. MatrixMedian.cpp
 060. PivotSortedRotated.cpp
+061. MedianTwoSortedArray.cpp
+062. KthElementofTwoSortedArray.cpp
+065. BITS.cpp

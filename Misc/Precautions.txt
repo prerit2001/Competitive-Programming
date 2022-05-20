@@ -31,3 +31,5 @@
 16. https://leetcode.com/contest/weekly-contest-276/problems/maximum-running-time-of-n-computers/ -> brilliant question
 17. focus on first half on palindrome /find-palindrome-with-fixed-length/
 18. when thought go in direction of recursion think about stack as well
+19. While solving DP, check if DP table can be sorten or input can be modified to perform DP table.
+20. While solving code on doc check if doc auto complete is turned off.
