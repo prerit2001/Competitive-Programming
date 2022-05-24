@@ -1,4 +1,5 @@
 /*https://leetcode.com/problems/palindrome-partitioning/*/
+---------------------------------------------------------------
 /*
 	M1: Bit Manipulation
 	O(n*2^n) time and O(n*2^n) space
@@ -43,6 +44,7 @@ public:
         return ans;
     }
 };
+---------------------------------------------------------------
 /*
 	M2: Dynamic Programming
 */

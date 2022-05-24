@@ -1,4 +1,5 @@
 /*https://leetcode.com/problems/valid-anagram/*/
+-------------------------------------------------------
 /*
 	M1: dictionary comparison
 	O(n) time and O(distinct characters) space
@@ -18,6 +19,7 @@ public:
         return true;
     }
 };
+-------------------------------------------------------
 /*
 	m2: Sorting
 	O(nlogn) time and O(1) space
@@ -30,3 +32,4 @@ public:
         return s == t; 
     }
 };
+-------------------------------------------------------

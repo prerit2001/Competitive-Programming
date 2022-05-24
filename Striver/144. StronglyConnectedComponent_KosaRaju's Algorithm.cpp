@@ -2,6 +2,8 @@
 	step 1 -> topo sort
 	step 2 -> transpose graph
 	step 3 -> dfs according to topo sort
+
+	Read Reason : https://www.geeksforgeeks.org/strongly-connected-components/
 */
 #include <bits/stdc++.h>
 using namespace std;

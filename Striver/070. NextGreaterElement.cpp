@@ -1,8 +1,10 @@
 /*https://leetcode.com/problems/next-greater-element-ii/*/
+------------------------------------------------------------
 /*
 	M1: Brute Force
 	O(n^2) time and O(1) space
 */
+------------------------------------------------------------
 /*
 	M2: Monotonic Stack
 	O(n) time and O(n) space
@@ -26,3 +28,4 @@
 	        return nge; 
 	    }
 	};
+------------------------------------------------------------

@@ -1,4 +1,5 @@
 /*https://www.interviewbit.com/problems/minimum-characters-required-to-make-a-string-palindromic/*/
+----------------------------------------------------------------------------------------------------
 /*
     M1: LPS Array
     O(n) time and O(n) space
@@ -37,3 +38,4 @@ int Solution::solve(string s) {
     int ans = n - lps.back();
     return ans;
 }
+---------------------------------------------------------------------

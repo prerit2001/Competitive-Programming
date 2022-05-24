@@ -1,8 +1,10 @@
-/*https://leetcode.com/problems/largest-rectangle-in-histogram/*/
+/*https://leetcode.com/problems/largest-rectangle-in-histogram*/
+-----------------------------------------------------------------
 /*
 	M1: Brute Force -> find next/prev smaller linearly
 	O(n^2) time and O(1) space
 */
+-----------------------------------------------------------------
 /*
 	M2: Stack 2 Pass Solution
 	O(n) time and O(n) space
@@ -33,6 +35,7 @@
         }
         return ans;
     }
+-----------------------------------------------------------------
 /*
 	M3: One Pass Solution
 	O(n) time and O(1) space
@@ -56,3 +59,4 @@
         }
         return maxA;
     }
+-----------------------------------------------------------------

@@ -77,7 +77,7 @@ public:
 #define priorityqueue pair <int, pi >
 class Solution{
     public:
-    int minPathSum(vector <vector<int> > &grid){
+    int minPathSum(vector<vector<int> > &grid){
         int n=grid.size();
         int m=grid[0].size();
         priority_queue <priorityqueue, vector <priorityqueue> , greater <priorityqueue> > pq;

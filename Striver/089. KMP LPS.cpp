@@ -1,4 +1,5 @@
 /*https://leetcode.com/problems/implement-strstr/submissions/*/
+----------------------------------------------------------------
 class Solution {
 public:
     int strStr(string haystack, string needle) {
@@ -25,7 +26,7 @@ public:
         return lps;
     }
 };
-
+--------------------------------------------------------------------
 /*
 
 Difference between LPS KMP and Z-function

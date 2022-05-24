@@ -1,4 +1,5 @@
 /*https://www.codingninjas.com/codestudio/problems/count-distinct-substrings_985292*/
+------------------------------------------------------------------------------------------
 struct trie{
 	trie *next[26];
     bool end;
@@ -36,3 +37,4 @@ int countDistinctSubstrings(string &s)
     }
     return cnt(head);
 }
+------------------------------------------------------------------------------------------

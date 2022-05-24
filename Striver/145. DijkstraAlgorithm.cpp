@@ -1,5 +1,5 @@
 /*
-	Time complexity O(E+V log V):
+	Time complexity O(E + VlogV):
 	Space complexity O(V)
 */
 /* 

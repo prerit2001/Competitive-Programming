@@ -14,7 +14,7 @@ public:
         string state = "";
         for(int i = curr; i < n; i ++){
             state += s[i];
-            if(m    p.count(state)){
+            if(mp.count(state)){
                 ans = max(ans,go(i+1,n,s,mp));
             }
         }

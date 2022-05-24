@@ -29,6 +29,9 @@ signed main(){
 			dist[i] = 1e15;
 		}
 
+		int src = 0;
+		dist[src] = 0;
+
 		// bellmen_ford
 		for(i=0;i<n-1;i++){
 			for(auto [u,v,w] : edge){

@@ -1,4 +1,5 @@
-/*https://leetcode.com/problems/first-missing-positive/submissions/*/
+/*https://leetcode.com/problems/first-missing-positive/*/
+-----------------------------------------------------------------------
 /*
 	BEST METHOD : USE INDEX AS A HASH
 	O(n) time and O(1) space
@@ -26,3 +27,4 @@ public:
         return -1;
     }
 };
+-----------------------------------------------------------------------

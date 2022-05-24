@@ -1,4 +1,5 @@
 /*https://www.codingninjas.com/codestudio/problems/complete-string_2687860*/
+------------------------------------------------------------------------------
 struct trie{
 	trie *next[26];
     bool end;
@@ -50,3 +51,4 @@ string completeString(int n, vector<string> &a){
     }
     return ans;
 }
+----------------------------------------------------------------------------

@@ -61,7 +61,7 @@ public:
 ---------------------------------------------------------------------------
 /*
 	M3: Tabulation (Bottom Up)
-	O(n* max(a[i]) time and O(n* max(a[i]) space
+	O(n^2) time and O(n) space
 */
 int dp[2505]; // max number of elements in LIS upto i index
 class Solution {

@@ -22,7 +22,7 @@ Job a[M];
 pair<int, int> dp[M][105];
 
 class Solution {
-    public:
+public:
     pair<int, int> JobChoice(int i, int n, int nextSlotAvailable = 1){
     	if(i >= n){
     		return {0, nextSlotAvailable - 1}; // since next_Slot_available - 1 == number of job done
@@ -61,7 +61,7 @@ class Solution {
 	O(n*deadline) and O(n) space
 */
 class Solution {
-    public:
+public:
     //function used for sorting all jobs according to decreasing profit.
     static bool comparison(Job a, Job b) { 
     	return (a.profit > b.profit); 
@@ -71,44 +71,44 @@ class Solution {
         int res = 0, count = 0;
         
     	//sorting all jobs according to decreasing order of profit.
-    	sort(arr, arr+n, comparison); 
-    
+        sort(arr, arr+n, comparison); 
+        
         //array to store result (Sequence of jobs). 
-    	int result[n];
+        int result[n];
     	//boolean array to keep track of free time slots.
-    	bool slot[n]; 
-    
-    	for (int i=0; i<n; i++) 
-    		slot[i] = false; 
-    
+        bool slot[n]; 
+        
+        for (int i=0; i<n; i++) 
+          slot[i] = false; 
+      
     	//iterating through all given jobs.
-    	for (int i=0; i<n; i++) { 
+      for (int i=0; i<n; i++) { 
         	//finding a free slot for current job (Note that we start 
         	//from the last possible slot). 
-        	for (int j=min(n, arr[i].dead)-1; j>=0; j--) { 
+       for (int j=min(n, arr[i].dead)-1; j>=0; j--) { 
         		//if free slot is found, we add current job to result array
         		//and make the current slot occupied. 
-        		if (slot[j]==false) { 
-        			result[j] = i;  
-        			slot[j] = true; 
-        			break; 
-        		} 
-        	} 
-    	} 
-    
-    	for (int i=0; i<n; i++) { 
+          if (slot[j]==false) { 
+             result[j] = i;  
+             slot[j] = true; 
+             break; 
+         } 
+     } 
+ } 
+ 
+ for (int i=0; i<n; i++) { 
     	    //if slot is occupied, we update the counter and //add its profit in final result.
-        	if (slot[i]) {
-        	    count++;
-        	    res += arr[result[i]].profit;
-        	}
-    	}
-    	
-    	vector<int> ans;
-    	ans.push_back(count);
-    	ans.push_back(res);
-    	return ans;
-    } 
+   if (slot[i]) {
+       count++;
+       res += arr[result[i]].profit;
+   }
+}
+
+vector<int> ans;
+ans.push_back(count);
+ans.push_back(res);
+return ans;
+} 
 };
 -------------------------------------------------------------------------------------
 /*
@@ -136,7 +136,7 @@ struct comparator2{
 
 class Solution 
 {
-    public:
+public:
     //Function to find the maximum profit and the number of jobs done.
     vector<int> JobScheduling(Job arr[], int n){ 
         struct comparator1 cmp;
@@ -176,90 +176,77 @@ class Solution
 	M4: DSU
 	O(nlogn) time and O(n) space
 */
+/*
 struct Job 
 { 
-    int id;	 // Job Id 
+    int id;  // Job Id 
     int dead; // Deadline of job 
     int profit; // Profit if job is over before or on deadline 
-}; 
+};
+*/
 
-class DSU{
-public:
-    vector<int> parent, size;
-    int n;
-    DSU(int n){
-        this->n = n;
-        parent.resize(n);
-        size.resize(n);
-        iota(parent.begin(),parent.end(),0);
-        for (int i = 0; i < n; i ++){
-            size[i] = 1;
-        }
-    }
-    int group_size(int a){
-        int parent = find_set(a);
-        return size[parent];
-    }
-    int find_set(int a){
-        if (parent[a] == a)
-            return a;
-        return parent[a] = find_set(parent[a]);
-    }
-    void union_set(int a, int b){
-        a = find_set(a);
-        b = find_set(b);
-        parent[a] = parent[b];
-        size[b] += size[a];
-    }
-    void print_groups(){
-        map<int,vector<int>> group;
-        for(int i = 0; i < n; i ++){
-            group[find_set(i)].push_back(i);
-        }
-        for(auto v : group){
-            cout << v.first << " : [ ";
-            for(auto ele : v.second){
-                cout << ele << " "; 
-            }
-            cout << "]\n";
-        }
+struct comparator{
+    bool operator()(Job x, Job y){
+        if(x.profit == y.profit)
+            return x.dead < y.dead;
+        return x.profit > y.profit;
     }
 };
 
-struct comparator{
-    bool operator()(Job a, Job b){
-        return a.profit > b.profit;
-    }  
+class DSU{
+    vector<int> parent;
+    int n;
+public:
+    DSU(int n){
+        this -> n  = n;
+        parent.resize(n);
+        for(int i = 0; i < n; i++){
+            parent[i] = i;
+        }
+    }
+    int find_set(int x){
+        if(x == parent[x]){
+            return x;
+        }
+        return parent[x] = find_set(parent[x]);
+    }
+    void union_set(int x, int y){
+        parent[x] = find_set(x);
+        parent[y] = find_set(y);
+        if(parent[x] == parent[y]){
+            return;
+        }
+        parent[y] = parent[x];
+    }
 };
 
 class Solution 
 {
-    public:
+public:
     //Function to find the maximum profit and the number of jobs done.
-    vector<int> JobScheduling(Job arr[], int n) { 
+    vector<int> JobScheduling(Job arr[], int n) 
+    { 
         struct comparator cmp;
         sort(arr, arr + n, cmp);
+        
+        DSU dsu(101);
+        int ans = 0;    
+        int job = 0;
 
-        DSU dsu(105);
-        int profitEarned = 0;
-        int numberOfJobDone = 0;
         for(int i = 0; i < n; i ++){
-        	Job& cur = arr[i];
-
-        	int parent = dsu.find_set(cur.dead);
-
-        	if(parent != 0){
-        		
-        		dsu.union_set(parent, parent - 1);
-
-        		profitEarned += cur.profit;
-        		numberOfJobDone += 1;
-
-        	}
+    // check if it is possible to take this into consideration
+            
+            int parent_I = dsu.find_set(arr[i].dead);
+            if(parent_I == 0){
+                continue;
+            }
+            
+            job += 1;
+            ans += arr[i].profit;
+            dsu.union_set(parent_I - 1, parent_I);
         }
-
-        return {numberOfJobDone, profitEarned};
-
+        
+        return {job, ans};
     } 
 };
 -------------------------------------------------------------------------------------

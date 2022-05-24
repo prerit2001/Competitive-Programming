@@ -5,7 +5,7 @@
 	O(n) time and O(2*n) space
 */
 	class MinStack {
-     stack<pair<int, int>> st;
+    stack<pair<int, int>> st;
 	public:
 	    void push(int x) {
 	        int min;
@@ -34,6 +34,12 @@
 /*
 	M2: 2*val - min
 	O(n) time and O(n) space
+
+
+	eg-
+		stack -> 2 4 1
+		push -> 2 4 0
+		mini -> 2 2 1
 */
 	class MinStack {
     stack<long long> st; 
