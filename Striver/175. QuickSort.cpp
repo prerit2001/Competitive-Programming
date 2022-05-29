@@ -1,5 +1,5 @@
 /*
-	O(n) avg and O(n^2) worst
+	O(nlogn) avg and O(n^2) worst
 */
 #include<bits/stdc++.h>
 using namespace std;

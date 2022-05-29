@@ -3,6 +3,7 @@
 	Preorder -> root left right
 	Postorder -> left rignt root
 */
+-------------------------------------------------------------
 /*
 	M1: Recursion
 	O(n) time and O(1) space + O(H) recursive call stack
@@ -34,6 +35,7 @@
 		cout << "Inorder Traversal : ";
 		Inorder(root);
 	}
+-------------------------------------------------------------
 /*
 	M2: Stack
 	O(n) time and O(H) space
@@ -72,3 +74,4 @@
 		cout << "Inorder Traversal : ";
 		Inorder(root);
 	}
+-------------------------------------------------------------
