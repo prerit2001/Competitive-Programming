@@ -5,22 +5,26 @@
 using namespace std;
 
 // function to fix the position of pivot element
-int partition(int low, int high, vector<int>& v){
-	int pivot = high;
-	int size = v.size();
-
-	for(int i = low; i < pivot; ){
-		if(v[i] > v[pivot]){
-			swap(v[i], v[pivot]);
-			swap(v[i], v[pivot - 1]);
-			pivot -= 1;
-		}
-		else{
-			i += 1;
-		}
-	}
-
-	return pivot;
+int partition(int low, int high, vector<int>& nums){
+	int idToCorrect = high;
+    for(int i = low; i < idToCorrect; ){
+        if(nums[i] >= nums[idToCorrect]){
+            if(idToCorrect - i >= 2){ 
+                swap(nums[idToCorrect], nums[idToCorrect - 1]);
+                swap(nums[idToCorrect], nums[i]);
+                idToCorrect --;
+            }
+            else{
+                swap(nums[idToCorrect], nums[i]);
+                idToCorrect --;
+                i ++;
+            }
+        }
+        else{
+            i ++;
+        }
+    }
+    return idToCorrect;
 }
 
 void quickSort(int low, int high, vector<int>& v){
