@@ -34,4 +34,6 @@
 19. While solving DP, check if DP table can be sorten or input can be modified to perform DP table.
 20. While solving code on doc check if doc auto complete is turned off.
 21. if question is min of max or max of min, think of binary search on answer.
-22. Never Forgot Reminder Theorem https://codeforces.com/contest/1690/problem/E
+22. Never Forgot about Reminder Theorem https://codeforces.com/contest/1690/problem/E
+23. never forget, unordered map can transform your code to O(n) from O(nlogn) if every way is blocked.
+24. always thing greedy before DP. 100/-
