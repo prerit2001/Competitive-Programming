@@ -37,3 +37,11 @@
 22. Never Forgot about Reminder Theorem https://codeforces.com/contest/1690/problem/E
 23. never forget, unordered map can transform your code to O(n) from O(nlogn) if every way is blocked.
 24. always thing greedy before DP. 100/-
+25. if no optimised approach is strike, think about nested loop limitations, like
+	for i 1-n
+		for j 1-n
+	cam be converted to
+	for i 1-n
+		for j i-i+30
+	etc...
+	eg. https://codeforces.com/contest/1703/problem/G
