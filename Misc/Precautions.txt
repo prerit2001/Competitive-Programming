@@ -46,3 +46,4 @@
 	etc...
 	eg. https://codeforces.com/contest/1703/problem/G
 26. bits(num1 OR num2) + bits(num1 AND num2) = bits(num1) + bits(num2)
+27. palindrome -> expand around center, take 2 len then 3 len ... -> find logic around len expansion

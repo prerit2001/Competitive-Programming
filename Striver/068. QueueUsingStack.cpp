@@ -1,6 +1,9 @@
 /*https://leetcode.com/problems/implement-queue-using-stacks/*/
-
-/*Approach #1 (Two Stacks) Push - O(n) per operation, Pop - O(1) per operation.*/
+------------------------------------------------------------------------------------------
+/* 
+    Approach #1 (Two Stacks) 
+    Push - O(n) per operation, Pop - O(1) per operation.
+*/
 public void push(int x) {
     if (s1.empty())
         front = x;
@@ -16,7 +19,11 @@ public void pop() {
         front = s1.peek();
 }
 
-/*Approach #2 (Two Stacks) Push - O(1) per operation, Pop - Amortized O(1) per operation.*/
+------------------------------------------------------------------------------------------
+/*
+    Approach #2 (Two Stacks) Push - O(1) per operation, Pop - Amortized O(1) per operation.
+    Time complexity: Amortized O(1), Worst-case O(n)
+*/
 public void push(int x) {
     if (s1.empty())
         front = x;
@@ -28,4 +35,5 @@ public void pop() {
             s2.push(s1.pop());
     }
     s2.pop();    
-}Time complexity: Amortized O(1), Worst-case O(n)
+}
+------------------------------------------------------------------------------------------

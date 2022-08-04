@@ -133,7 +133,7 @@
     }
 
 	long countInversions(vector<int> a) {
-	        int n = a.size();
-	        vector<int> temp(n);
-	        return merge_sort(a,temp,0,n-1);
+        int n = a.size();
+        vector<int> temp(n);
+        return merge_sort(a,temp,0,n-1);
 	}

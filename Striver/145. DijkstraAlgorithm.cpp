@@ -1,3 +1,67 @@
+           /********************************************************************          
+      * *                 AUTHOR-- PRERIT KUMAR JHA                         *
+      * * !!!!!!!! IMPOSSIBLE MEANS YOU HAVEN'T FOUND SOLUTION YET !!!!!!!  *
+      *********************************************************************/
+#include<bits/stdc++.h>
+using namespace std;
+#define                       ll                                 long long int
+#define                      test                       int t;cin>>t;while(t--)
+#define                  arrayscan(a,n)            for(ll i=0;i<n;cin>>a[i++]);
+#define                      mod                                    1000000007
+#define                      endl                                         "\n"
+#define                       pb                                     push_back
+#define                       mp                                     make_pair
+#define                       pf                                    push_front
+#define                      popb                                     pop_back
+#define                      popf                                    pop_front
+#define                    forr(i,a,b)                      for(ll i=a;i<b;++i)
+#define                   rforr(i,a,b)                   for(ll i=b-1;i>=a;i--)             
+#define   fastio  ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL) 
+
+ 
+
+int main(){
+    //*******************//ONLINE JUDGE//************************//
+               //###############################//
+
+                      #ifndef ONLINE_JUDGE
+                freopen("input.txt", "r", stdin);
+               freopen("output.txt", "w", stdout);
+                            #endif
+
+               //################################//             
+    //*******************//FAST INPUT/OUTPUT//*******************//
+                          //#############//
+
+                               fastio;
+
+                          //#############//     
+    //*******************//START CODE HERE//*********************//
+  test{ 
+      
+      
+  
+  }
+
+  return 0;
+}
+
+
+/*          # ################################### #
+            #     DSA (BASIC) -- (___RECALL___) - #
+            * *********************************** *
+            *   1. PRIORITY QUEUE                 *
+            *   2. QUEUE                          *
+            *   3. STACK                          *
+            *   4. MAP                            *  
+            *   5. SET                            *
+            *   6. VECTOR<make_pair<int,int>>     * 
+            *   7. DEQUE                          *
+            *   8. MULTISET                       *
+            *   9. REGEX                          *
+            *  10. Reserve in map                 *
+            ***************************************
+*/
 /*
 	Time complexity O(E + VlogV):
 	Space complexity O(V)

@@ -34,7 +34,6 @@ void reverseStack(stack<ll>& s){
     insertAtBottom(store, s);
 }
 
-
 int main() {
     
     stack<ll> s;

@@ -1,5 +1,5 @@
 /*
-	M1 : Recusion
+	M1 : Recursion
 	O(n) time and O(1) space + O(n) Recursion Call Stack  
 */
 	#include<bits/stdc++.h>

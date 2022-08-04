@@ -4,7 +4,6 @@
 	M1 : Brute force
 	O(n * m) time and O(1) space  
 */
-
 	void solve(vector<int> a, int n, vector<int> b, int m){
 		int ptr1 = 0, ptr2 = 0;
 		if(m == 0) return;
@@ -56,7 +55,7 @@
 	        //Function to merge the arrays.
 	        void merge(long long arr1[], long long arr2[], int n, int m) 
 	        { 
-	            // code here 
+	            // code here
 	            int gap = (n + m + 1) / 2;
 	            while(1){
 	                int i = 0, j = gap;
@@ -67,7 +66,8 @@
 	                        int s = j;
 	                        if(s >= n){
 	                            s = s - n;
-	                            if(arr2[f] > arr2[s]) swap(arr2[f], arr2[s]);
+	                            if(arr2[f] > arr2[s]) 
+	                            	swap(arr2[f], arr2[s]);
 	                        }
 	                        else{
 	                            // not possible

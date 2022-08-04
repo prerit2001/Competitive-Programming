@@ -1,5 +1,5 @@
 /*https://leetcode.com/problems/implement-stack-using-queues/*/
-
+-------------------------------------------------------------------
 /*Approach #1 (Two Queues, push - O(1), pop O(n))*/
 public void push(int x) {
     q1.add(x);
@@ -15,7 +15,7 @@ public void pop() {
     q1 = q2;
     q2 = temp;
 }
-
+-------------------------------------------------------------------
 /*Approach #2 (Two Queues, push - O(n), pop O(1) )*/
 public void push(int x) {
     q2.add(x);
@@ -33,8 +33,7 @@ public void pop() {
     	top = q1.peek();
     }
 }
-
-
+-------------------------------------------------------------------
 /*Approach #2 (One Queues, push - O(n), pop O(1) )*/
 public void push(int x) {
     q1.add(x);
@@ -47,3 +46,4 @@ public void push(int x) {
 public void pop() {
     q1.remove();
 }
+-------------------------------------------------------------------

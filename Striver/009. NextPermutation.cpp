@@ -16,7 +16,6 @@
 		-> reverse the right side of it
 
 */
-
 	class Solution {
 	public:
 	    void nextPermutation(vector<int>& nums) {
